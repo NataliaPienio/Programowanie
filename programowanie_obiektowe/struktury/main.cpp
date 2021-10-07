@@ -13,14 +13,15 @@ class School{
        void setNameSurname(string name, string surname);
 
        static string s_getSchool();
-       static void s_setSchool(string pSchool);
+       static void s_setSchool(string pSchool){
+          s_school=pSchool;}
 };
 
 string School::s_school="ZSK";
-string School::s_jobPosition="Uczeñ";
+string School::s_jobPosition="UczeÃ±";
 
 void School::getData(){
-    cout<<"Imiê i nazwisko: "<<name<<" "<<surname<<endl;
+    cout<<"ImiÃª i nazwisko: "<<name<<" "<<surname<<endl;
 };
 
 void School::setNameSurname(string name, string pSurname){
@@ -28,13 +29,13 @@ void School::setNameSurname(string name, string pSurname){
     surname=pSurname;
 };
 
-string s_getSchool(){
-    return School::s_school;
+string School::s_getSchool(){
+    return s_school;
 };
 
 int main(int argc, char** argv){
     setlocale(LC_CTYPE,"polish");
-    cout<<School::s_school<<endl; //przy u¿yciu klasy mo¿emy statyczne wywo³ywaæ
+    cout<<School::s_school<<endl; //przy uÂ¿yciu klasy moÂ¿emy statyczne wywoÂ³ywaÃ¦
     cout<<School::s_jobPosition<<endl;
 
     School kowal;
@@ -45,14 +46,14 @@ int main(int argc, char** argv){
     cout<<"Stanowisko: "<<School::s_jobPosition<<endl;
     cout<<kowal.s_jobPosition<<endl;
 
-    School::s_jobPosition="dyrektor";
-    cout<<"Stanowisko: "<<School::s_jobPosition<<endl;\
+   kowal.s_jobPosition="dyrektor";
+   cout<<School::s_jobPosition;
 
     kowal.s_getSchool();
-    kowal.s_setSchool("ZS£");
+    kowal.s_setSchool("ZSÂ£");
     cout<<kowal.s_getSchool();
 
     return 0;
 }
-    //do statycznych nie dodajemy wartoœæ w klasie
+    //do statycznych nie dodajemy wartoÅ“Ã¦ w klasie
     //statycznych
